@@ -1,0 +1,131 @@
+@import "./styles/global";
+
+@mixin parametersOfTheMainBlocks {
+  display: grid;
+  grid-template-rows: 1fr 6fr 1fr;
+
+  width: 35vw;
+  min-width: 300px;
+  height: 65vh;
+  min-height: 500px;
+
+  font-size: 2vh;
+
+  border: 2px solid var(--border-color);
+
+  &__header {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &__footer {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+
+    button {
+      height: 100%;
+      width: 100%;
+
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+    }
+    :hover {
+      background-color: var(--hover-bg-color);
+    }
+    :active {
+      background-color: var(--active-bg-color);
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+
+  min-height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.phonebook {
+  @include parametersOfTheMainBlocks();
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    overflow-y: auto;
+
+    div {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      gap: 2px;
+
+      width: 100%;
+      height: 100px;
+
+      padding: 3%;
+      margin: 0;
+
+      border-bottom: 1px solid var(--border-color);
+    }
+    :hover {
+      background-color: var(--hover-bg-color);
+    }
+    :active {
+      background-color: var(--active-bg-color);
+    }
+  }
+}
+.phonebookAddContact {
+  @include parametersOfTheMainBlocks();
+
+  &__content {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    align-content: start;
+
+    overflow-y: auto;
+
+    div {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      gap: 2px;
+
+      width: 100%;
+
+      padding: 3%;
+      margin: 0;
+
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    textarea {
+      max-width: 100%;
+      height: 150px;
+
+      resize: none;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+  }
+}

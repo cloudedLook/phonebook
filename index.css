@@ -1,0 +1,206 @@
+:root {
+  --border-color: black;
+  --hover-bg-color: rgb(239, 255, 255);
+  --active-bg-color: rgb(219, 255, 255);
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1vw;
+  min-height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.phonebook {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
+  width: 35vw;
+  min-width: 300px;
+  height: 65vh;
+  min-height: 500px;
+  font-size: 2vh;
+  border: 2px solid var(--border-color);
+}
+.phonebook__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+.phonebook__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid var(--border-color);
+}
+.phonebook__footer button {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.phonebook__footer :hover {
+  background-color: var(--hover-bg-color);
+}
+.phonebook__footer :active {
+  background-color: var(--active-bg-color);
+}
+.phonebook__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+  grid-template-columns: auto;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  overflow-y: auto;
+}
+.phonebook__content > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.phonebook__content div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  height: 100px;
+  padding: 3%;
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.phonebook__content :hover {
+  background-color: var(--hover-bg-color);
+}
+.phonebook__content :active {
+  background-color: var(--active-bg-color);
+}
+
+.phonebookAddContact {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 6fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
+  width: 35vw;
+  min-width: 300px;
+  height: 65vh;
+  min-height: 500px;
+  font-size: 2vh;
+  border: 2px solid var(--border-color);
+}
+.phonebookAddContact__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+.phonebookAddContact__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid var(--border-color);
+}
+.phonebookAddContact__footer button {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.phonebookAddContact__footer :hover {
+  background-color: var(--hover-bg-color);
+}
+.phonebookAddContact__footer :active {
+  background-color: var(--active-bg-color);
+}
+.phonebookAddContact__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+  grid-template-columns: auto;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  overflow-y: auto;
+}
+.phonebookAddContact__content > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.phonebookAddContact__content div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 3%;
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.phonebookAddContact__content textarea {
+  max-width: 100%;
+  height: 150px;
+  resize: none;
+}
+
+@media (max-width: 640px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
