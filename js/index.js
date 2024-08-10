@@ -15,7 +15,10 @@ function clickNewContact() {
 }
 
 function clickAddContact() {
-  createContactCard(collectInfoFromInput());
+  if (hasNumberInInput("number") && hasTextInInput("contact-name")) {
+    createContactCard(collectInfoFromInput());
+  } else if (hasNumberInInput("number")) {
+  }
 }
 
 function collectInfoFromInput() {
@@ -37,6 +40,7 @@ function createContactCard(contactInfo) {
   const contactBlock = document.createElement("div");
   contactBlock.setAttribute("id", contactInfo.number);
   contactBlock.className = "phonebook__contact";
+  console.log("---", contactInfo.number.length);
 
   const nameContact = document.createElement("p");
   nameContact.innerText = `${contactInfo.name}`;
@@ -51,6 +55,26 @@ function createContactCard(contactInfo) {
 
 function hasAddContactWindow() {
   if (document.querySelector(".phonebookAddContact")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function hasTextInInput(classInput) {
+  const input = document.querySelector(`.${classInput}`);
+
+  if (input.value.length === 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function hasNumberInInput(classNumberInput) {
+  const input = document.querySelector(`.${classNumberInput}`);
+  console.log(input.length);
+  if (input.value.length === 18) {
     return true;
   } else {
     return false;
@@ -136,7 +160,7 @@ function createContactInformationInputBlock(name) {
   contactName.className =
     "info-contact contact-name phonebookAddContact__information-input";
   contactName.classList.add("information");
-  contactName.placeholder = "Введите имя";
+  contactName.placeholder = "Введите имя*";
   contactName.setAttribute("name", `name`);
 
   const contactSurname = document.createElement("input");
