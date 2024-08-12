@@ -17,8 +17,18 @@ function clickNewContact() {
 function clickAddContact() {
   if (hasNumberInInput("number") && hasTextInInput("contact-name")) {
     createContactCard(collectInfoFromInput());
-  } else if (hasNumberInInput("number")) {
   }
+  if (!hasNumberInInput("number")) {
+    recolorBorderRed("number");
+  }
+  if (!hasTextInInput("contact-name")) {
+    recolorBorderRed("contact-name");
+  }
+}
+
+function recolorBorderRed(classInput) {
+  const input = document.querySelector(`.${classInput}`);
+  input.style.borderColor = "red";
 }
 
 function collectInfoFromInput() {
@@ -140,6 +150,7 @@ function createPhoneNumberInputBlock(name) {
   const phoneNumberInput = document.createElement("input");
   phoneNumberInput.className = "info-contact phonebookAddContact__number-input";
   phoneNumberInput.classList.add("number");
+  phoneNumberInput.placeholder = "Введите номер телефона*";
   phoneNumberInput.setAttribute("name", `number`);
 
   const container = document.createElement("div");
